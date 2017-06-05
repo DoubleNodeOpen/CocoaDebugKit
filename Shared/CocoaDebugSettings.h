@@ -48,7 +48,7 @@
 
 
 @property (nonatomic) CGSize maxSizeOfField;
-@property (nonatomic) NSNumber *maxDataLenght;			
+@property (nonatomic) NSNumber *maxDataLength;			
 @property (nonatomic) BOOL convertDataToImage;			
 @property (nonatomic) NSArray *propertyNameContains;	
 

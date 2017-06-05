@@ -16,7 +16,7 @@
 {
 	CocoaPropertyEnumerator *propertyEnumerator;
 	NSMutableArray *lines;
-	NSInteger typeLenght;
+	NSInteger typeLength;
 }
 
 @end
@@ -45,11 +45,11 @@
 	{
 		propertyEnumerator = [[CocoaPropertyEnumerator alloc] init];
 		lines = [NSMutableArray array];
-		typeLenght = 0;
+		typeLength = 0;
 		
 		CocoaDebugSettings *settings = [CocoaDebugSettings sharedSettings];
 		
-		self.dataMaxLenght	= settings.maxDataLenght;
+		self.dataMaxLength	= settings.maxDataLength;
 		self.save			= settings.save;
 		self.saveUrl		= settings.saveUrl;
 	}
@@ -86,10 +86,10 @@
 	{
 		NSData *data = [obj valueForKey:name];
 		
-		// cut lenght to 100 byte
-		if ([data length] > self.dataMaxLenght.integerValue)
+		// cut length to 100 byte
+		if ([data length] > self.dataMaxLength.unsignedIntegerValue)
 		{
-			data = [data subdataWithRange:NSMakeRange(0, self.dataMaxLenght.integerValue)];
+			data = [data subdataWithRange:NSMakeRange(0, self.dataMaxLength.unsignedIntegerValue)];
 		}
 		
 		[self addDescriptionLine:[CocoaPropertyLine lineWithType:type name:name value:[data description]]];
@@ -106,7 +106,7 @@
 	
 	
 	id value = [obj valueForKey:name];
-	NSString *description = [[value description] stringByReplacingOccurrencesOfString:@"\n" withString:[NSString stringWithFormat:@"\n%@", [self _spaceFromLenght:4]]];
+	NSString *description = [[value description] stringByReplacingOccurrencesOfString:@"\n" withString:[NSString stringWithFormat:@"\n%@", [self _spaceFromLength:4]]];
 	[self addDescriptionLine:[CocoaPropertyLine lineWithType:type name:name value:description]];
 }
 
@@ -115,8 +115,8 @@
 	NSMutableString *string = [NSMutableString stringWithFormat:@"<%p> %@ {\n", _obj, _obj.cp_className];
 	for (CocoaPropertyLine *line in lines)
 	{
-		NSInteger deltaLenght = typeLenght - (line.type.length + line.name.length);
-		[string appendFormat:@"\t%@%@ %@ = %@\n", line.type, [self _spaceFromLenght:deltaLenght], line.name, line.value];
+		NSUInteger deltaLength = ((NSUInteger)typeLength - (line.type.length + line.name.length));
+		[string appendFormat:@"\t%@%@ %@ = %@\n", line.type, [self _spaceFromLength:deltaLength], line.name, line.value];
 	}
 	
 	[string appendString:@"}"];
@@ -160,10 +160,10 @@
 
 #pragma mark - Private
 
-- (NSString *)_spaceFromLenght:(NSInteger)lenght
+- (NSString *)_spaceFromLength:(NSUInteger)length
 {
-	NSMutableString *string = [[NSMutableString alloc] initWithCapacity:lenght];
-	for (NSInteger i = 0; i < lenght; i++) {
+	NSMutableString *string = [[NSMutableString alloc] initWithCapacity:length];
+	for (NSUInteger i = 0; i < length; i++) {
 		[string appendString:@" "];
 	}
 	return string;
@@ -171,8 +171,8 @@
 
 - (void)addDescriptionLine:(CocoaPropertyLine *)line
 {
-	if (line.type.length + line.name.length > typeLenght) {
-		typeLenght = line.type.length + line.name.length;
+	if ((NSInteger)(line.type.length + line.name.length) > typeLength) {
+		typeLength = (NSInteger)(line.type.length + line.name.length);
 	}
 	
 	[lines addObject:line];

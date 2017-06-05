@@ -9,9 +9,11 @@
 #ifndef CocoaDebugKit_CrossPlatformDefinitions_h
 #define CocoaDebugKit_CrossPlatformDefinitions_h
 
-	#if TARGET_OS_IPHONE
+#import "TargetConditionals.h"
+
+    #if TARGET_OS_IPHONE
 		#import <UIKit/UIKit.h>
-		#import <CocoaTouchDebugKit/CocoaPropertyLine.h>
+		#import "CocoaPropertyLine.h"
 		typedef UIView	CPView;
 		typedef UIColor	CPColor;
 		typedef UIFont	CPFont;
@@ -49,7 +51,7 @@
 
 		#import <Cocoa/Cocoa.h>
 		#import <QuartzCore/QuartzCore.h>
-		#import <CocoaDebugKit/CocoaPropertyLine.h>
+		#import "CocoaPropertyLine.h"
 		typedef NSView	CPView;
 		typedef NSColor	CPColor;
 		typedef NSFont	CPFont;
@@ -70,11 +72,11 @@
 			CPImageScaleProportionallyUpOrDown = NSImageScaleProportionallyUpOrDown
 		};
 		typedef NS_ENUM(NSUInteger, CPTextAlignment) {
-			CPAlignmentCenter = NSCenterTextAlignment,
-			CPAlignmentLeft = NSLeftTextAlignment,
-			CPAlignmentRight = NSRightTextAlignment,
-			CPAlignmentJustified = NSJustifiedTextAlignment,
-			CPAlignmentNatural = NSNaturalTextAlignment
+			CPAlignmentCenter = NSTextAlignmentCenter,
+			CPAlignmentLeft = NSTextAlignmentLeft,
+			CPAlignmentRight = NSTextAlignmentRight,
+			CPAlignmentJustified = NSTextAlignmentJustified,
+			CPAlignmentNatural = NSTextAlignmentNatural
 		};
 
 

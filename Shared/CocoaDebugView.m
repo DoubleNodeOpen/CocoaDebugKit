@@ -204,7 +204,7 @@
 {
 	[super drawRect:dirtyRect];
 	
-	// Uncomment this to resize view based on title lenght
+	// Uncomment this to resize view based on title length
 //	if (titleTextField.frame.size.width + 20 > self.frame.size.width)	// +20 => | 10 --- label ----- 10 |
 //	{
 //		[self setFrame:CPMakeRect(self.frame.origin.x, self.frame.origin.y, titleTextField.frame.size.width + 20, self.frame.size.height)];
@@ -458,7 +458,7 @@
 	}
 }
 
-- (void)addLineWithDescription:(NSString *)desc image:(CPImage *)image;
+- (void)addLineWithDescription:(NSString *)desc image:(CPImage *)image
 {
 	if (!image) {
 		[self addLineWithDescription:desc string:nil];
@@ -477,7 +477,7 @@
 	[self addSubview:imageView];
 	
 	[self synchroniseHeightOfView:left secondView:imageView];
-	pos = pos + imageView.frame.size.height + _lineSpace;
+	pos = pos + (NSInteger)imageView.frame.size.height + _lineSpace;
 	[self resizeLeftTextViews];
 	[self resizeRightTextViews];
 	[self setFrame:CPMakeRect(0, 0, 10 + leftWidth + 20 + rightWidth + 10, pos)];
@@ -509,7 +509,7 @@
 	
 	[self synchroniseRightWidthFromView:view];
 	
-	pos = pos + fmaxf(left.frame.size.height, view.frame.size.height) + _lineSpace;
+	pos = pos + (NSInteger)fmax(left.frame.size.height, view.frame.size.height) + _lineSpace;
 	[self addSubview:view];
 	[self resizeLeftTextViews];
 	[self resizeRightTextViews];
@@ -1031,7 +1031,7 @@
 	CPTextField *right = [self _addRightLabel:value color:rightColor font:rfont];
 	
 	[self synchroniseHeightOfView:left secondView:right];
-	pos = pos + fmaxf(left.frame.size.height, right.frame.size.height) + _lineSpace;
+	pos = pos + (NSInteger)fmax(left.frame.size.height, right.frame.size.height) + _lineSpace;
 	[self resizeLeftTextViews];
 	[self resizeRightTextViews];
 	[self setFrame:CPMakeRect(0, 0, 10 + leftWidth + 20 + rightWidth + 10, pos)];
@@ -1065,7 +1065,7 @@
 	// sizeThatsFits only availible in 10.10 and highter :(
 	CGFloat width = right.frame.size.width;
 	if (width > self.maxSizeOfField.width) {
-		NSInteger numberOfLines = ceil(width / self.maxSizeOfField.width);
+		NSInteger numberOfLines = (NSInteger)ceil(width / self.maxSizeOfField.width);
 		CGFloat height = MIN(numberOfLines * right.font.pointSize * 1.5, self.maxSizeOfField.height);	// 1.5 since I assume pointSize return points from baseline to top (not bottom to top)
 		right.frame = CGRectMake(right.frame.origin.x, right.frame.origin.y, self.maxSizeOfField.width, height);
 	}
@@ -1133,7 +1133,7 @@
 
 - (void)synchroniseHeightOfView:(CPView *)left secondView:(CPView *)right
 {
-	CGFloat height = fmaxf(left.frame.size.height, right.frame.size.height);
+	CGFloat height = fmax(left.frame.size.height, right.frame.size.height);
 	[left setFrame:CPMakeRect(left.frame.origin.x, left.frame.origin.y, left.frame.size.width, height)];
 	[right setFrame:CPMakeRect(right.frame.origin.x, right.frame.origin.y, right.frame.size.width, height)];
 }
@@ -1143,7 +1143,7 @@
 	CGFloat newWidth = view.frame.size.width;
 	
 	if (newWidth > rightWidth) {
-		rightWidth = newWidth;
+		rightWidth = (NSInteger)newWidth;
 	}
 }
 
@@ -1152,7 +1152,7 @@
 	CGFloat newWidth = view.frame.size.width;
 	
 	if (newWidth > leftWidth) {
-		leftWidth = newWidth;
+		leftWidth = (NSInteger)newWidth;
 	}
 }
 

@@ -6,6 +6,8 @@
 //  Copyright (c) 2015 Patrick Kladek. All rights reserved.
 //
 
+#import "TargetConditionals.h"
+
 #if TARGET_OS_IPHONE
 // iOS code
 #else

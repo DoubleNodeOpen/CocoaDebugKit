@@ -6,6 +6,8 @@
 //  Copyright (c) 2017 Patrick Kladek. All rights reserved.
 //
 
+#import "TargetConditionals.h"
+
 #import <UIKit/UIKit.h>
 
 //! Project version number for CocoaTouchDebugKit.
@@ -16,8 +18,8 @@ FOUNDATION_EXPORT const unsigned char CocoaTouchDebugKitVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <CocoaTouchDebugKit/PublicHeader.h>
 
-#import <CocoaTouchDebugKit/CocoaDebugView.h>
-#import <CocoaTouchDebugKit/CocoaDebugSettings.h>
-#import <CocoaTouchDebugKit/CocoaDebugDescription.h>
-#import <CocoaTouchDebugKit/CocoaPropertyEnumerator.h>
+#import "CocoaDebugView.h"
+#import "CocoaDebugSettings.h"
+#import "CocoaDebugDescription.h"
+#import "CocoaPropertyEnumerator.h"
 

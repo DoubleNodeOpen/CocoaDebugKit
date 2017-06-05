@@ -15,7 +15,7 @@ static const char *getPropertyType(objc_property_t property)
 {
 	const char *attributes = property_getAttributes(property);
 	char buffer[1 + strlen(attributes)];
-	strcpy(buffer, attributes);
+	strlcpy(buffer, attributes, sizeof(buffer));
 	char *state = buffer, *attribute;
 	
 	/*
@@ -67,62 +67,48 @@ static const char *getPropertyType(objc_property_t property)
 			switch (attribute[1]) {
 				case 'c':
 					return "char";
-					break;
-				case 'i':
+				
+                case 'i':
 					return "int";
-					break;
-					
-				case 's':
+				
+                case 's':
 					return "short";
-					break;
-					
-				case 'l':
+
+                case 'l':
 					return "long";
-					break;
 					
 				case 'q':
 					return "long long";
-					break;
 					
 				case 'C':
 					return "unsigned char";
-					break;
 					
 				case 'I':
 					return "unsigned int";
-					break;
 					
 				case 'S':
 					return "unsigned short";
-					break;
 					
 				case 'L':
 					return "unsigned long";
-					break;
 					
 				case 'Q':
 					return "unsigned long long";
-					break;
 					
 				case 'f':
 					return "float";
-					break;
 					
 				case 'd':
 					return "double";
-					break;
 					
 				case 'B':
 					return "bool";
-					break;
 					
 				case 'v':
 					return "void";
-					break;
 					
 				case '*':
 					return "char *";
-					break;
 					
 				default:
 					break;

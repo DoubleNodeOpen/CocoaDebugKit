@@ -13,7 +13,7 @@
 @interface CocoaDebugDescription : NSObject
 
 @property (nonatomic, readonly) NSObject *obj;
-@property (nonatomic) NSNumber *dataMaxLenght;
+@property (nonatomic) NSNumber *dataMaxLength;
 
 @property (nonatomic) BOOL save;
 @property (nonatomic) NSURL *saveUrl;

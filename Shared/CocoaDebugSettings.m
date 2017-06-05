@@ -67,9 +67,9 @@ static CPColor *NSColorFromHexString(NSString *inColorString)
 		_textFont				= [CPFont fontWithName:@"Menlo" size:12];
 		
 		_keywordColor			= [CPColor colorWithRed:0.592 green:0.000 blue:0.496 alpha:1.000];
-		_keywordFont			= [CPFont fontWithName:@"Menlo" size:12];
+		_keywordFont            = [CPFont fontWithName:@"Menlo" size:12];
 		
-		_numberColor			= [CPColor colorWithRed:0.077 green:0.000 blue:0.766 alpha:1.000];
+		_numberColor            = [CPColor colorWithRed:0.077 green:0.000 blue:0.766 alpha:1.000];
 		_numberFont				= [CPFont fontWithName:@"Menlo" size:12];
 		
 		_propertyNameColor		= [CPColor grayColor];
@@ -80,11 +80,11 @@ static CPColor *NSColorFromHexString(NSString *inColorString)
 		
 		
 		_frameColor				= [CPColor blueColor];
-		_backgroundColor		= [CPColor whiteColor];
+		_backgroundColor		    = [CPColor whiteColor];
 		_imageSize				= CPMakeSize(30, 30);
 		
 		_maxSizeOfField			= CGSizeMake(300, 500);
-		_maxDataLenght			= [NSNumber numberWithInteger:50];
+		_maxDataLength			= [NSNumber numberWithInteger:50];
 		_convertDataToImage		= true;
 		_propertyNameContains 	= @[@"image", @"icon"];
 		
@@ -211,9 +211,9 @@ static CPColor *NSColorFromHexString(NSString *inColorString)
 	
 	
 	
-	if ([settings valueForKeyPath:@"debugDescription.NSData.cutLenght"])
+	if ([settings valueForKeyPath:@"debugDescription.NSData.cutLength"])
 	{
-		_maxDataLenght = [settings valueForKeyPath:@"debugDescription.NSData.cutLenght"];
+		_maxDataLength = [settings valueForKeyPath:@"debugDescription.NSData.cutLength"];
 	}
 	
 	if ([settings valueForKeyPath:@"debugView.image.dataToImage"]) {
