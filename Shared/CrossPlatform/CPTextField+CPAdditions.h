@@ -6,6 +6,7 @@
 //  Copyright (c) 2017 Patrick Kladek. All rights reserved.
 //
 
+#import <Foundation/Foundation.h>
 #import "CrossPlatformDefinitions.h"
 
 #if TARGET_OS_IPHONE

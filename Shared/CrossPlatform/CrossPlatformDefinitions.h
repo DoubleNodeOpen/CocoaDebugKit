@@ -9,10 +9,11 @@
 #ifndef CocoaDebugKit_CrossPlatformDefinitions_h
 #define CocoaDebugKit_CrossPlatformDefinitions_h
 
-#import "TargetConditionals.h"
+#import <Foundation/Foundation.h>
 
     #if TARGET_OS_IPHONE
-		#import <UIKit/UIKit.h>
+
+        #import <UIKit/UIKit.h>
 		#import "CocoaPropertyLine.h"
 		typedef UIView	CPView;
 		typedef UIColor	CPColor;

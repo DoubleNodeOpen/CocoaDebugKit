@@ -6,8 +6,6 @@
 //  Copyright (c) 2017 Patrick Kladek. All rights reserved.
 //
 
-#import "TargetConditionals.h"
-
 #import <UIKit/UIKit.h>
 
 //! Project version number for CocoaTouchDebugKit.

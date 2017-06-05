@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 Patrick Kladek. All rights reserved.
 //
 
-#import "TargetConditionals.h"
+#import <Foundation/Foundation.h>
 
 #if TARGET_OS_IPHONE
 // iOS code
@@ -22,16 +22,9 @@ FOUNDATION_EXPORT const unsigned char CocoaDebugFrameworkVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <CocoaDebugKit/PublicHeader.h>
 
-
-#import <CocoaDebugKit/CocoaDebugView.h>
-#import <CocoaDebugKit/CocoaDebugSettings.h>
-#import <CocoaDebugKit/CocoaDebugDescription.h>
-#import <CocoaDebugKit/CocoaPropertyEnumerator.h>
-#import <CocoaDebugKit/CrossPlatformDefinitions.h>
-
-
-//#import "CocoaDebugView.h"
-//#import "CocoaDebugSettings.h"
-//#import "CocoaDebugDescription.h"
-//#import "CocoaPropertyEnumerator.h"
+#import "CocoaDebugView.h"
+#import "CocoaDebugSettings.h"
+#import "CocoaDebugDescription.h"
+#import "CocoaPropertyEnumerator.h"
+#import "CrossPlatformDefinitions.h"
 

@@ -6,6 +6,8 @@
 //  Copyright (c) 2015 Patrick Kladek. All rights reserved.
 //
 
+@import QuartzCore;
+
 #import "CocoaDebugView.h"
 #import "CocoaDebugSettings.h"
 #import "CocoaPropertyEnumerator.h"
@@ -817,7 +819,7 @@
 	[green sizeToFit];
 	[blue sizeToFit];
 	[alpha sizeToFit];
-	CGFloat width = fmax(fmax(red.frame.size.width, green.frame.size.width), fmax(blue.frame.size.width, alpha.frame.size.width));
+	CGFloat width = (CGFloat)fmax(fmax(red.frame.size.width, green.frame.size.width), fmax(blue.frame.size.width, alpha.frame.size.width));
 	view.frame = CPMakeRect(0, 0, width + colorView.frame.size.width + 5, 80);
 	
 	return view;
@@ -1066,7 +1068,7 @@
 	CGFloat width = right.frame.size.width;
 	if (width > self.maxSizeOfField.width) {
 		NSInteger numberOfLines = (NSInteger)ceil(width / self.maxSizeOfField.width);
-		CGFloat height = MIN(numberOfLines * right.font.pointSize * 1.5, self.maxSizeOfField.height);	// 1.5 since I assume pointSize return points from baseline to top (not bottom to top)
+		CGFloat height = (CGFloat)MIN(numberOfLines * right.font.pointSize * 1.5, self.maxSizeOfField.height);	// 1.5 since I assume pointSize return points from baseline to top (not bottom to top)
 		right.frame = CGRectMake(right.frame.origin.x, right.frame.origin.y, self.maxSizeOfField.width, height);
 	}
 	[self synchroniseRightWidthFromView:right];
@@ -1133,7 +1135,7 @@
 
 - (void)synchroniseHeightOfView:(CPView *)left secondView:(CPView *)right
 {
-	CGFloat height = fmax(left.frame.size.height, right.frame.size.height);
+	CGFloat height = (CGFloat)fmax(left.frame.size.height, right.frame.size.height);
 	[left setFrame:CPMakeRect(left.frame.origin.x, left.frame.origin.y, left.frame.size.width, height)];
 	[right setFrame:CPMakeRect(right.frame.origin.x, right.frame.origin.y, right.frame.size.width, height)];
 }

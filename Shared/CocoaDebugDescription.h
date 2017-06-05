@@ -9,7 +9,6 @@
 #import <Foundation/Foundation.h>
 #import "CrossPlatformDefinitions.h"
 
-
 @interface CocoaDebugDescription : NSObject
 
 @property (nonatomic, readonly) NSObject *obj;

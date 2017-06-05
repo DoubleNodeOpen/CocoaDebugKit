@@ -66,10 +66,10 @@ static CPColor *NSColorFromHexString(NSString *inColorString)
 		_textColor				= [CPColor blackColor];
 		_textFont				= [CPFont fontWithName:@"Menlo" size:12];
 		
-		_keywordColor			= [CPColor colorWithRed:0.592 green:0.000 blue:0.496 alpha:1.000];
+		_keywordColor			= [CPColor colorWithRed:0.592f green:0.000f blue:0.496f alpha:1.000f];
 		_keywordFont            = [CPFont fontWithName:@"Menlo" size:12];
 		
-		_numberColor            = [CPColor colorWithRed:0.077 green:0.000 blue:0.766 alpha:1.000];
+		_numberColor            = [CPColor colorWithRed:0.077f green:0.000f blue:0.766f alpha:1.000f];
 		_numberFont				= [CPFont fontWithName:@"Menlo" size:12];
 		
 		_propertyNameColor		= [CPColor grayColor];
